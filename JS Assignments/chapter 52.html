@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Elements</title>
+    <style>
+        /* Additional CSS styles for better presentation */
+        p:hover {
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="heading">Hover over me!</h1>
+    <p id="paragraph">Hover over this paragraph to underline text.</p>
+    <p id="boldSentence">Click on this sentence to make it bold.</p>
+    <div id="imageDiv">
+        <img id="image1" src="image1.jpg" alt="Image 1" width="200" height="200">
+        <img id="image2" src="image2.png" alt="Image 2" width="200" height="200" style="display: none;">
+    </div>
+    <button id="imageButton">Swap Images</button>
+
+    <script>
+        // JavaScript Functions
+        var sentenceBold = false;
+        var imageVisible = true;
+
+        // Example 1: Make Sentence Bold on Click
+        document.getElementById('boldSentence').addEventListener('click', function() {
+            var sentence = document.getElementById('boldSentence');
+            if (!sentenceBold) {
+                sentence.style.fontWeight = 'bold';
+                sentenceBold = true;
+            } else {
+                sentence.style.fontWeight = 'normal';
+                sentenceBold = false;
+            }
+        });
+
+        // Example 2: Show Text on Image Hover
+        document.getElementById('imageDiv').addEventListener('mouseover', function() {
+            if (imageVisible) {
+                document.getElementById('image1').style.display = 'none';
+                document.getElementById('image2').style.display = 'block';
+                imageVisible = false;
+            }
+        });
+
+        document.getElementById('imageDiv').addEventListener('mouseout', function() {
+            if (!imageVisible) {
+                document.getElementById('image1').style.display = 'block';
+                document.getElementById('image2').style.display = 'none';
+                imageVisible = true;
+            }
+        });
+
+        // Example 3: Change Background on Heading Hover
+        document.getElementById('heading').addEventListener('mouseover', function() {
+            this.style.backgroundColor = 'black';
+        });
+
+        document.getElementById('heading').addEventListener('mouseout', function() {
+            this.style.backgroundColor = 'lightgray';
+        });
+
+        // Example 4: Underline Text on Paragraph Hover (Styling is applied using CSS)
+
+        // Example 5: Swap Images on Button Click
+        var imageButton = document.getElementById('imageButton');
+        var currentImage = 1;
+
+        imageButton.addEventListener('click', function() {
+            if (currentImage === 1) {
+                document.getElementById('image1').style.display = 'none';
+                document.getElementById('image2').style.display = 'block';
+                currentImage = 2;
+            } else {
+                document.getElementById('image1').style.display = 'block';
+                document.getElementById('image2').style.display = 'none';
+                currentImage = 1;
+            }
+        });
+    </script>
+</body>
+</html>

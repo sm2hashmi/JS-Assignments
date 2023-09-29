@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Examples</title>
+</head>
+<body>
+    <h1>JavaScript Examples</h1>
+
+    <!-- Example 1: Expandable Paragraph -->
+    <p id="expandableParagraph">This is some text that can be expanded.</p>
+    <button onclick="expandParagraph()">Show More</button>
+
+    <!-- Example 2: Search Text in Paragraph -->
+    <p id="searchParagraph">This is a sample paragraph with some text.</p>
+    <input type="text" id="searchInput" placeholder="Search">
+    <button onclick="searchText()">Search</button>
+
+    <!-- Example 3: Find Longest Word in Paragraph -->
+    <p id="longestWordParagraph">This is a sample paragraph with some long and short words.</p>
+    <button onclick="findLongestWord()">Find Longest Word</button>
+
+    <!-- Example 4: Update Paragraph from Text Field (Not Empty) -->
+    <p id="outputParagraph">This paragraph will be updated.</p>
+    <input type="text" id="textField" placeholder="Enter text">
+    <button onclick="updateParagraph()">Update Paragraph</button>
+
+    <!-- Example 5: Update Paragraph with Specific Word -->
+    <p id="outputParagraph2">This paragraph will be updated with a specific word.</p>
+    <input type="text" id="textField2" placeholder="Enter word">
+    <button onclick="updateParagraphWithSpecificWord()">Update Paragraph</button>
+
+    <!-- Example 6: Update Paragraph if Text is Short -->
+    <p id="outputParagraph3">This paragraph will be updated with a shorter text.</p>
+    <input type="text" id="textField3" placeholder="Enter text">
+    <button onclick="updateParagraphIfShort()">Update Paragraph</button>
+
+    <script>
+        // JavaScript Functions
+        function expandParagraph() {
+            var paragraph = document.getElementById('expandableParagraph');
+            paragraph.style.height = 'auto';
+            paragraph.style.overflow = 'visible';
+        }
+
+        function searchText() {
+            var paragraphText = document.getElementById('searchParagraph').textContent;
+            var searchWord = document.getElementById('searchInput').value;
+
+            if (paragraphText.includes(searchWord)) {
+                alert('Found: ' + searchWord);
+            } else {
+                alert(searchWord + ' not found in the paragraph.');
+            }
+        }
+
+        function findLongestWord() {
+            var paragraphText = document.getElementById('longestWordParagraph').textContent;
+            var words = paragraphText.split(' ');
+            var longestWord = '';
+
+            for (var i = 0; i < words.length; i++) {
+                if (words[i].length > longestWord.length) {
+                    longestWord = words[i];
+                }
+            }
+
+            alert('Longest Word: ' + longestWord);
+        }
+
+        function updateParagraph() {
+            var textFieldValue = document.getElementById('textField').value;
+            if (textFieldValue.trim() !== '') {
+                document.getElementById('outputParagraph').textContent = textFieldValue;
+            }
+        }
+
+        function updateParagraphWithSpecificWord() {
+            var textFieldValue = document.getElementById('textField2').value;
+            var specificWord = 'example'; // Replace with your specific word or phrase
+
+            if (textFieldValue === specificWord) {
+                document.getElementById('outputParagraph2').textContent = textFieldValue;
+            }
+        }
+
+        function updateParagraphIfShort() {
+            var textFieldValue = document.getElementById('textField3').value;
+            var maxLength = 10; // Replace with your desired maximum length
+
+            if (textFieldValue.length <= maxLength) {
+                document.getElementById('outputParagraph3').textContent = textFieldValue;
+            }
+        }
+    </script>
+</body>
+</html>

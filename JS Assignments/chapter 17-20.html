@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>  
+    <script>
+        var userNames = ["Alice", "Bob", "Charlie", "David"];
+        var firstName = prompt("Enter your first name:");
+
+        for (var index = 0; index < userNames.length; index++) {
+            if (firstName === userNames[index]) {
+                alert("User name found in the array.");
+                break; // Exit the loop when the name is found
+            }
+        }
+    </script>
+</body>
+</html>

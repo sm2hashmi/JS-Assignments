@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Event Handling Examples</title>
+</head>
+<body>
+
+<!-- Example 1: Event that prints a message -->
+<p id="messageElement">Click me!</p>
+
+<!-- Example 2: Event that hides an element -->
+<p id="hideElement">Click here to hide me!</p>
+
+<!-- Example 3: Link changes color on hover -->
+<a id="colorChangeLink" href="#">Hover over me</a>
+
+<!-- Example 4: Link scrolls to the top -->
+<a id="scrollToTopLink">Scroll to top</a>
+
+<!-- Example 5: Link plays a sound -->
+<a id="playSoundLink">Play sound</a>
+
+<!-- Example 6: Button that alerts a message -->
+<button id="alertButton">Click to alert</button>
+
+<!-- Example 7: Button changes color on hover -->
+<button id="colorChangeButton">Hover to change color</button>
+
+<!-- Example 8: Button plays a sound -->
+<button id="playSoundButton2">Play sound</button>
+
+<!-- Example 9: Event that alerts a message -->
+<div id="mouseOverElement">Mouse over me</div>
+
+<!-- Example 10: Event that hides an element -->
+<div id="mouseOutElement">Move mouse out to hide me</div>
+
+<!-- Example 11: Link opens and closes a window -->
+<a id="openCloseWindowLink">Open and Close Window</a>
+
+<script>
+    // Example 1: Event that prints a message
+    document.getElementById('messageElement').addEventListener('click', function() {
+        alert('Message from Example 1: Clicked!');
+    });
+
+    // Example 2: Event that hides an element
+    document.getElementById('hideElement').addEventListener('click', function() {
+        this.style.display = 'none';
+    });
+
+    // Example 3: Link changes color on hover
+    document.getElementById('colorChangeLink').addEventListener('mouseover', function() {
+        this.style.color = 'red';
+    });
+    document.getElementById('colorChangeLink').addEventListener('mouseout', function() {
+        this.style.color = 'blue';
+    });
+
+    // Example 4: Link scrolls to the top
+    document.getElementById('scrollToTopLink').addEventListener('click', function() {
+        window.scrollTo(0, 0);
+    });
+
+    // Example 5: Link plays a sound
+    document.getElementById('playSoundLink').addEventListener('click', function() {
+        var audio = new Audio('sound.mp3');
+        audio.play();
+    });
+
+    // Example 6: Button that alerts a message
+    document.getElementById('alertButton').addEventListener('click', function() {
+        alert('Message from Example 6: Clicked!');
+    });
+
+    // Example 7: Button changes color on hover
+    document.getElementById('colorChangeButton').addEventListener('mouseover', function() {
+        this.style.backgroundColor = 'yellow';
+    });
+    document.getElementById('colorChangeButton').addEventListener('mouseout', function() {
+        this.style.backgroundColor = '';
+    });
+
+    // Example 8: Button plays a sound
+    document.getElementById('playSoundButton2').addEventListener('click', function() {
+        var audio = new Audio('sound.mp3');
+        audio.play();
+    });
+
+    // Example 9: Event that alerts a message
+    document.getElementById('mouseOverElement').addEventListener('mouseover', function() {
+        alert('Message from Example 9: Mouse over!');
+    });
+
+    // Example 10: Event that hides an element
+    document.getElementById('mouseOutElement').addEventListener('mouseout', function() {
+        this.style.display = 'none';
+    });
+
+    // Example 11: Link opens and closes a window
+    document.getElementById('openCloseWindowLink').addEventListener('click', function() {
+        var newWindow = window.open('', '_blank', 'width=400,height=400');
+        newWindow.document.write('<html><body>New Window</body></html>');
+        newWindow.focus();
+
+        var closeBtn = newWindow.document.createElement('button');
+        closeBtn.innerHTML = 'Close Window';
+        closeBtn.onclick = function() {
+            newWindow.close();
+        };
+
+        newWindow.document.body.appendChild(closeBtn);
+    });
+</script>
+
+</body>
+</html>
+

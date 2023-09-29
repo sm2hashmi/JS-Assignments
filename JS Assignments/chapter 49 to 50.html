@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Examples</title>
+</head>
+<body>
+
+<!-- Example 1: Read and print user input -->
+<input type="text" id="inputField1" placeholder="Enter something">
+<button onclick="readAndPrintUserInput()">Read Input</button>
+
+<!-- Example 2: Read and print checkbox value -->
+<input type="checkbox" id="checkbox1"> Check this box
+<button onclick="readAndPrintCheckbox()">Read Checkbox</button>
+
+<!-- Example 3: Read and print select box value -->
+<select id="selectField1">
+    <option value="option1">Option 1</option>
+    <option value="option2">Option 2</option>
+    <option value="option3">Option 3</option>
+</select>
+<button onclick="readAndPrintSelectBox()">Read Select Box</button>
+
+<!-- Example 4: Place text in a field -->
+<input type="text" id="textField1" value="This is some text">
+
+<!-- Example 5: Set value based on martial status -->
+<input type="text" id="statusField1" placeholder="Status">
+<button onclick="setMartialStatus()">Set Martial Status</button>
+
+<!-- Example 6: Fill empty input with a string -->
+<input type="text" id="emptyInput1" placeholder="Empty Input">
+<button onclick="fillEmptyInput()">Fill Input</button>
+
+<!-- Example 7: Registration Form with Validation -->
+<form id="registrationForm1" onsubmit="return validateForm()">
+    <label for="firstName1">First Name:</label>
+    <input type="text" id="firstName1" required><br>
+
+    <label for="lastName1">Last Name:</label>
+    <input type="text" id="lastName1" required><br>
+
+    <label for="email1">Email:</label>
+    <input type="email" id="email1" required><br>
+
+    <label for="password1">Password:</label>
+    <input type="password" id="password1" required><br>
+
+    <button type="submit">Register</button>
+</form>
+
+<script>
+    // Example 1: Read and print user input
+    function readAndPrintUserInput() {
+        var userInput = document.getElementById('inputField1').value;
+        console.log('User Input:', userInput);
+    }
+
+    // Example 2: Read and print checkbox value
+    function readAndPrintCheckbox() {
+        var checkBox = document.getElementById('checkbox1').checked;
+        console.log('Checkbox Value:', checkBox);
+    }
+
+    // Example 3: Read and print select box value
+    function readAndPrintSelectBox() {
+        var selectBox = document.getElementById('selectField1').value;
+        console.log('Select Box Value:', selectBox);
+    }
+
+    // Example 5: Set value based on martial status
+    function setMartialStatus() {
+        var married = false; // You can set this value based on user input
+        var statusField = document.getElementById('statusField1');
+
+        if (!married) {
+            statusField.value = 'Available';
+        }
+    }
+
+    // Example 6: Fill empty input with a string
+    function fillEmptyInput() {
+        var emptyInput = document.getElementById('emptyInput1');
+        if (emptyInput.value === '') {
+            emptyInput.value = 'This is not empty anymore';
+        }
+    }
+
+    // Example 7: Registration Form Validation
+    function validateForm() {
+        var firstName = document.getElementById('firstName1').value;
+        var lastName = document.getElementById('lastName1').value;
+        var email = document.getElementById('email1').value;
+        var password = document.getElementById('password1').value;
+
+        if (firstName === '' || lastName === '' || email === '' || password === '') {
+            alert('Please fill in all fields.');
+            return false;
+        }
+
+        
+
+        return true;
+    }
+</script>
+
+</body>
+</html>
